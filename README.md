@@ -58,3 +58,21 @@ Let suppose you don't want to run that terminal instead you want to run another 
     - Here we have told to run the container in execute mode with interaction with the root in bash.
 
 ## Creating Image on docker hub.
+
+First of all keep dome points in mind before pushing image to docker hub.
+
+- You should have an account on docker hub.
+- It must be logged in on your local terminal from where you are pushing that code.
+    - docker login
+        - username 
+        - password
+- After a successful login now keep two thing in your mind.
+    - Create a repository on the hub its your choice to prefer creating public or private repo.
+    - The tagname showed there followed by your username, the whole name should you use while making the build of the image.
+
+- Now you are ready to push your image to the hub.
+
+- docker run imageTagName.
+
+
+Following all steps above it is sure you will create image of your basic node application.
