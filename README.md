@@ -1,4 +1,6 @@
-# Docker file
+# Docker file (Building Image and uploading to docker hub)
+
+## File
 
 We can directly use node image for building this app but here we have focussed on building from scratch using core os - using ubuntu image.
 
@@ -28,3 +30,31 @@ We can directly use node image for building this app but here we have focussed o
 
 - CMD [ "node","main.js" ]
     - This command will be run to start the server.
+
+## Building Image to local
+
+- docker build -t nodeapp
+    - Here this -t flag is being used to give tag to the image mean name.
+
+## Running on the local
+
+-   docker run -it -p 9000:9000 --name localNodeContainer nodeapp
+    - -p flag is being used for port mapping to our local port.
+    - -it flag is being used for running the container in interactive mode with the root terminal in docker container.
+    - --name flag is used to assign name to the container if not assigned the docker will assign it a random name.
+    - We can use -e flag and the followed by different environment variable if used in your app as it does not need to configure .env file.
+
+Let suppost the container is stopped then we can restart the container and this time we will not use run command as this is only used when we have to create a new container now we will run:-
+
+- docker start localNodeContainer 
+    - This will start the container if stopped and we not have to do port mapping all the time.
+
+- docker start -ai localNodeContainer
+    - This -ai flag is used to start container in interactive attach mode that will directly make you enter in that process terminal in which your app is running.
+
+Let suppose you don't want to run that terminal instead you want to run another process then you can use execute command   
+
+- docker exec -it localNodeContainer bash
+    - Here we have told to run the container in execute mode with interaction with the root in bash.
+
+## Creating Image on docker hub.
