@@ -1,5 +1,7 @@
 # Docker file (Building Image and uploading to docker hub)
 
+---
+
 ## File
 
 We can directly use node image for building this app but here we have focussed on building from scratch using core os - using ubuntu image.
@@ -31,10 +33,14 @@ We can directly use node image for building this app but here we have focussed o
 - CMD [ "node","main.js" ]
     - This command will be run to start the server.
 
+    ---
+
 ## Building Image to local
 
 - docker build -t nodeapp
     - Here this -t flag is being used to give tag to the image mean name.
+
+    ---
 
 ## Running on the local
 
@@ -57,6 +63,8 @@ Let suppose you don't want to run that terminal instead you want to run another 
 - docker exec -it localNodeContainer bash
     - Here we have told to run the container in execute mode with interaction with the root in bash.
 
+    ---
+
 ## Creating Image on docker hub.
 
 First of all keep dome points in mind before pushing image to docker hub.
@@ -73,6 +81,8 @@ First of all keep dome points in mind before pushing image to docker hub.
 - Now you are ready to push your image to the hub.
 
 - docker run imageTagName.
+
+---
 
 
 Following all steps above it is sure you will create image of your basic node application.
